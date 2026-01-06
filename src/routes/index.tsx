@@ -2,6 +2,8 @@ import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import App from '@/App'
 import { SampleDataShowcase } from '@/components/sample-data-showcase'
+import { Home } from '@/components/home'
+import { products } from '@/data'
 
 // Lazy load components for code splitting
 const SampleDataPage = lazy(() =>
@@ -57,24 +59,7 @@ export const router = createBrowserRouter(
       children: [
         {
           index: true,
-          element: (
-            <div className="flex min-h-screen items-center justify-center">
-              <div className="text-center">
-                <p className="text-muted-foreground text-lg mb-6">
-                  Welcome to EcoThread
-                </p>
-                <p className="text-sm text-gray-600 mb-8">
-                  Sustainable fashion with verifiable supply chain provenance
-                </p>
-                <a
-                  href="/sample-data"
-                  className="inline-block px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  View Sample Data & Products
-                </a>
-              </div>
-            </div>
-          ),
+          element: <Home products={products} />,
         },
         {
           path: 'sample-data',
