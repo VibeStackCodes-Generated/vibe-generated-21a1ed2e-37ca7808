@@ -12,58 +12,7 @@ import {
   getBatchesByProduct,
   getSuppliersByBatch,
 } from '@/data'
-
-/**
- * ProductCard component - displays a single product with summary
- */
-function ProductCard({ sku }: { sku: string }) {
-  const product = getProductBySku(sku)
-  if (!product) return null
-
-  return (
-    <div className="rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-      <div className="flex gap-4">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-24 h-24 object-cover rounded-lg"
-        />
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900">
-            {product.title}
-          </h3>
-          <p className="text-sm text-gray-600 mt-1">{product.sku}</p>
-          <p className="text-xl font-bold text-gray-900 mt-2">
-            ${(product.price / 100).toFixed(2)}
-          </p>
-          <p className="text-sm text-gray-500 mt-1">
-            Materials: {product.materials.join(', ')}
-          </p>
-          <div className="flex gap-2 mt-3">
-            {product.certifications.organic && (
-              <span className="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">
-                Organic
-              </span>
-            )}
-            {product.certifications.fairtrade && (
-              <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
-                Fair Trade
-              </span>
-            )}
-            {product.certifications.gri && (
-              <span className="inline-block px-2 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">
-                Recycled
-              </span>
-            )}
-          </div>
-          <p className="text-xs text-gray-500 mt-2">
-            CO₂: {product.totalCo2Grams}g
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { ProductGrid } from './product-grid'
 
 /**
  * SupplierCard component - displays supplier information
@@ -154,7 +103,7 @@ function ProductProvenanceDetail({ sku }: { sku: string }) {
 
   return (
     <div className="space-y-6">
-      <ProductCard sku={sku} />
+      {product && <ProductGrid products={[product]} />}
 
       {batchList.map((batch) => (
         <div key={batch.batchId} className="rounded-lg border border-gray-200 p-6">
@@ -184,26 +133,32 @@ function ProductProvenanceDetail({ sku }: { sku: string }) {
  */
 export function SampleDataShowcase() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            EcoThread Sample Data
-          </h1>
-          <p className="text-lg text-gray-600">
-            Complete product catalog with verifiable supply chain provenance
-          </p>
+    <div className="min-h-screen bg-white dark:bg-gray-950">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        {/* Main Product Grid */}
+        <ProductGrid
+          products={products}
+          title="EcoThread Collection"
+          description="Sustainable fashion with verifiable supply chain provenance"
+          columns={{ mobile: 1, tablet: 2, desktop: 3 }}
+        />
+
+        {/* Detailed Provenance Section */}
+        <div className="mt-16 sm:mt-20 lg:mt-24">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-10">
+            Supply Chain Details
+          </h2>
+          <div className="space-y-12 sm:space-y-16">
+            {products.map((product) => (
+              <ProductProvenanceDetail key={product.sku} sku={product.sku} />
+            ))}
+          </div>
         </div>
 
-        <div className="space-y-12">
-          {products.map((product) => (
-            <ProductProvenanceDetail key={product.sku} sku={product.sku} />
-          ))}
-        </div>
-
-        <div className="mt-16 border-t pt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Supply Chain Overview
+        {/* Suppliers Section */}
+        <div className="mt-16 sm:mt-20 lg:mt-24 border-t pt-12 sm:pt-16 lg:pt-20">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-10">
+            Supplier Network
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {suppliers.map((supplier) => (
@@ -212,28 +167,41 @@ export function SampleDataShowcase() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-lg bg-blue-50 border border-blue-200 p-8">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
-            Data Statistics
+        {/* Statistics Section */}
+        <div className="mt-16 sm:mt-20 rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 p-8 sm:p-10 lg:p-12">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-6 sm:mb-8">
+            Ecosystem Statistics
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div>
-              <p className="text-sm text-blue-600">Total Products</p>
-              <p className="text-2xl font-bold text-blue-900">{products.length}</p>
+              <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                Total Products
+              </p>
+              <p className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                {products.length}
+              </p>
             </div>
             <div>
-              <p className="text-sm text-blue-600">Total Suppliers</p>
-              <p className="text-2xl font-bold text-blue-900">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                Suppliers
+              </p>
+              <p className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                 {suppliers.length}
               </p>
             </div>
             <div>
-              <p className="text-sm text-blue-600">Total Batches</p>
-              <p className="text-2xl font-bold text-blue-900">{batches.length}</p>
+              <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                Batches
+              </p>
+              <p className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                {batches.length}
+              </p>
             </div>
             <div>
-              <p className="text-sm text-blue-600">Total CO₂</p>
-              <p className="text-2xl font-bold text-blue-900">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                Total CO₂
+              </p>
+              <p className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                 {products.reduce((sum, p) => sum + p.totalCo2Grams, 0)}g
               </p>
             </div>
