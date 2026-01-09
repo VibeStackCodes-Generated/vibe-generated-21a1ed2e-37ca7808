@@ -34,8 +34,8 @@ export const batches: Batch[] = [
         },
         co2Grams: 450,
         mediaUrls: [
-          'https://images.unsplash.com/photo-1556821552-eb2c6c6a5125?w=800',
-          'https://images.unsplash.com/photo-1590195753947-f8e7d53d1d8e?w=800',
+          'https://vibestack.codes/api/assets/proxy?src=unsplash&id=1556821552-eb2c6c6a5125&w=800',
+          'https://vibestack.codes/api/assets/proxy?src=unsplash&id=1590195753947-f8e7d53d1d8e&w=800',
         ],
       },
       {
@@ -59,7 +59,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 320,
-        mediaUrls: ['https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1578749556568-bc2c40e68b61&w=800'],
       },
       {
         stageName: 'Dyeing & Finishing',
@@ -82,7 +82,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 180,
-        mediaUrls: ['https://images.unsplash.com/photo-1586873669694-3671ef7de5f0?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1586873669694-3671ef7de5f0&w=800'],
       },
       {
         stageName: 'Garment Assembly',
@@ -105,7 +105,7 @@ export const batches: Batch[] = [
           carbontrust: false,
         },
         co2Grams: 210,
-        mediaUrls: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1558618666-fcd25c85cd64&w=800'],
       },
     ],
     totalCo2Grams: 1160,
@@ -138,7 +138,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 280,
-        mediaUrls: ['https://images.unsplash.com/photo-1601047288409-aeb8ce14ddbe?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1601047288409-aeb8ce14ddbe&w=800'],
       },
       {
         stageName: 'Fiber Processing',
@@ -161,7 +161,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 150,
-        mediaUrls: ['https://images.unsplash.com/photo-1590195753947-f8e7d53d1d8e?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1590195753947-f8e7d53d1d8e&w=800'],
       },
       {
         stageName: 'Garment Assembly',
@@ -184,7 +184,7 @@ export const batches: Batch[] = [
           carbontrust: false,
         },
         co2Grams: 190,
-        mediaUrls: ['https://images.unsplash.com/photo-1574551362934-4c81e4df80d2?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1574551362934-4c81e4df80d2&w=800'],
       },
       {
         stageName: 'Quality Control & Packaging',
@@ -207,7 +207,7 @@ export const batches: Batch[] = [
           carbontrust: false,
         },
         co2Grams: 95,
-        mediaUrls: ['https://images.unsplash.com/photo-1556821552-eb2c6c6a5125?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1556821552-eb2c6c6a5125&w=800'],
       },
     ],
     totalCo2Grams: 715,
@@ -240,7 +240,7 @@ export const batches: Batch[] = [
           carbontrust: false,
         },
         co2Grams: 320,
-        mediaUrls: ['https://images.unsplash.com/photo-1556821552-eb2c6c6a5125?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1556821552-eb2c6c6a5125&w=800'],
       },
       {
         stageName: 'Retting & Processing',
@@ -263,7 +263,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 240,
-        mediaUrls: ['https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1578749556568-bc2c40e68b61&w=800'],
       },
       {
         stageName: 'Weaving',
@@ -286,7 +286,7 @@ export const batches: Batch[] = [
           carbontrust: true,
         },
         co2Grams: 160,
-        mediaUrls: ['https://images.unsplash.com/photo-1586873669694-3671ef7de5f0?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1586873669694-3671ef7de5f0&w=800'],
       },
       {
         stageName: 'Assembly & Finishing',
@@ -309,7 +309,7 @@ export const batches: Batch[] = [
           carbontrust: false,
         },
         co2Grams: 130,
-        mediaUrls: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800'],
+        mediaUrls: ['https://vibestack.codes/api/assets/proxy?src=unsplash&id=1558618666-fcd25c85cd64&w=800'],
       },
     ],
     totalCo2Grams: 850,
